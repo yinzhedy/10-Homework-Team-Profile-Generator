@@ -1,11 +1,14 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const jest = require('jest');
-const generateTeamRoster = require('./markdown')
+const generateMarkdown = require('./markdown')
 const util = require('util');
 const path = require('path');
 
-const finishedPrompt = () => {
+var prompts = {};
+
+// prompt to ask the user if they're sure they're done creating their team
+prompts.finishedPrompt = function() {
     inquirer.prompt([
         {
           type: 'confirm',
@@ -15,7 +18,8 @@ const finishedPrompt = () => {
   ])
 }
 
-const addMemberPrompt = () => {
+// prompt to ask if the user would like to add another team member
+prompts.addMemberPrompt = function() {
     inquirer.prompt([
           {
             type: 'list',
@@ -33,8 +37,8 @@ const addMemberPrompt = () => {
 
 
     
-    // prompt for manager input, then option for additional team member
-const ManagerPrompts = () => { inquirer.prompt([
+// prompt for manager input, then option for additional team member
+prompts.managerPrompts = function() { inquirer.prompt([
         {
             type: 'input',
             name: 'managerName',
@@ -55,9 +59,10 @@ const ManagerPrompts = () => { inquirer.prompt([
             name: 'managerOfficeNumber',
             message: "What is your team manager's office number?",
           },
+          prompts.addMemberPrompt
     ])}
-    // prompt for engineer information
-const EngineerPrompts = () => { inquirer.prompt([
+// prompt for engineer information
+prompts.engineerPrompts = function() { inquirer.prompt([
     {
         type: 'input',
         name: 'engineerName',
@@ -80,7 +85,7 @@ const EngineerPrompts = () => { inquirer.prompt([
         },
 ])}
 
-const InternPrompts = () => { inquirer.prompt([
+prompts.internPrompts = function() { inquirer.prompt([
     {
         type: 'input',
         name: 'internName',
@@ -104,4 +109,4 @@ const InternPrompts = () => { inquirer.prompt([
 ])}
 
     
-    
+exports.prompts = prompts;
