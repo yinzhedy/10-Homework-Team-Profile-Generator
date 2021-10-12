@@ -113,7 +113,7 @@ const getTeamName = () => {
             generateRosterHtml(answer.teamName)
         }
         else {
-            console.log('Entry Invalid, please try again!')
+            console.log("Invalid Entry, let's try again! ")
             getTeamName();
         }
     })

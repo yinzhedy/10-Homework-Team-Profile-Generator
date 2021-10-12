@@ -58,7 +58,6 @@ prompts.managerPrompts = [
             name: 'officeNumber',
             message: "What is your team manager's office number?",
           },
-          prompts.addMemberPrompt
         ]
 // prompt for engineer information
 prompts.engineerPrompts = [
