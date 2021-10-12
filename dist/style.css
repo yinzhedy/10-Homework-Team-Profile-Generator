@@ -1,4 +1,27 @@
-body{margin-top:20px;}
+:root {
+    --charcoal: #435058;
+    --mindaro: #DCF763;
+    --pale-silver: #BFB7B6;
+    --cultured: #F1F2EE;
+    --battleship-grey: #848C8E;
+    --title-font: 'Bungee', cursive;;
+    --text-font:'Raleway', sans-serif;
+
+}
+
+body{
+    margin-top:20px;
+    background-color: var(--charcoal);
+    font-family: var(--text-font);
+}
+
+header, h5 {
+    font-family: 'Bungee', cursive;
+    font-family: var(--title-font);
+}
+
+
+
 .py-5 {
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
@@ -17,7 +40,7 @@ body{margin-top:20px;}
     position: relative !important;
 }
 .shadow-lg {
-    box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%) !important;
+    box-shadow: 0 1rem 3rem var(--battleship-grey) !important;
 }
 .card {
     position: relative;
@@ -27,9 +50,9 @@ body{margin-top:20px;}
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: var(--cultured);
     background-clip: border-box;
-    border: 1px solid rgba(0,0,0,0.125);
+    border: 5px solid var(--mindaro);
     border-radius: .25rem;
 }
 
@@ -59,5 +82,5 @@ body{margin-top:20px;}
     margin-left: auto !important;
 }
 .shadow-sm {
-    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
+    box-shadow: 0 0.125rem 0.25rem var(--mindaro) !important;
 }
