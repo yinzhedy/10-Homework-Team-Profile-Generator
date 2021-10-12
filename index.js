@@ -14,7 +14,7 @@ console.log(Manager.name)
 console.log(promptsJs)
 console.log("Hello! Lets get started on building your team roster.");
 
-let teamRoster = [];
+const teamRoster = [];
 
 const runPrompts = () => {
     inquirer.prompt(promptsJs.prompts.addFirstMemberPrompt)
@@ -51,10 +51,10 @@ const teamMemberPrompts = (prompt, role) => {
 
         else if(role == 'intern') {
             newTeamMember = new Intern(
-                answer.internName,
-                answer.internID,
-                answer.internEmail,
-                answer.internSchool,
+                answer.name,
+                answer.id,
+                answer.email,
+                answer.school,
             )
         }
 
@@ -78,16 +78,16 @@ const addPrompt = () => {
     inquirer.prompt(promptsJs.prompts.addMemberPrompt)
     .then((answer) => {
         console.log(answer)
-        if(answer.start == 'Manager') {
+        if(answer.addMember == 'Manager') {
             teamMemberPrompts(promptsJs.prompts.managerPrompts, 'manager')
         }
-        else if(answer.start == 'Intern') {
+        else if(answer.addMember == 'Intern') {
             teamMemberPrompts(promptsJs.prompts.internPrompts, 'intern')
         }
-        else if(answer.start == 'Engineer') {
+        else if(answer.addMember == 'Engineer') {
             teamMemberPrompts(promptsJs.prompts.engineerPrompts, 'engineer')
         }
-        else {
+        else if(answer.addMember == "No") {
             finishedPromptCheck();
         }
     })
@@ -97,7 +97,7 @@ const addPrompt = () => {
 const finishedPromptCheck = () => {
     inquirer.prompt(promptsJs.prompts.finishedPrompt)
     .then((answer) => {
-        if(answer.finished = false) {
+        if(answer.finished == "No") {
             addPrompt();
         }
         else {

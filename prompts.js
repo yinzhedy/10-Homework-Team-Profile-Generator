@@ -20,9 +20,10 @@ prompts.addFirstMemberPrompt = {
 
 prompts.finishedPrompt = 
         {
-          type: 'confirm',
+          type: 'list',
           name: 'finished',
-          message: "Are you done creating your team roster?"
+          message: "Are you done creating your team roster?",
+          choices: ["Yes", "No"]
         },
 
 // prompt to ask if the user would like to add another team member
