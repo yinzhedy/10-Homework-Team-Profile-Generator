@@ -10,6 +10,7 @@ const Intern = require('./lib/intern');
 const Engineer = require('./lib/engineer');
 const { assertGenericTypeAnnotation } = require('@babel/types');
 
+console.log(Manager.name)
 console.log(promptsJs)
 console.log("Hello! Lets get started on building your team roster.");
 
@@ -32,9 +33,10 @@ const runPrompts = () => {
 
 }
 
-const teamMemberPrompts = (prompts, role) => {
-    inquirer.prompt(prompts)
+const teamMemberPrompts = (prompt, role) => {
+    inquirer.prompt(prompt)
     .then((answer) => {
+        console.log(answer)
         let newTeamMember = {};
         if (role == 'manager') {
             newTeamMember = new Manager (
@@ -43,14 +45,16 @@ const teamMemberPrompts = (prompts, role) => {
                 answer.email,
                 answer.officeNumber
             )
+            console.log(newTeamMember)
+            console.log(Manager.officeNumber)
         }
 
         else if(role == 'intern') {
             newTeamMember = new Intern(
-                answer.name,
-                answer.id,
-                answer.email,
-                answer.school
+                answer.internName,
+                answer.internID,
+                answer.internEmail,
+                answer.internSchool,
             )
         }
 
@@ -62,7 +66,10 @@ const teamMemberPrompts = (prompts, role) => {
                 answer.github
             )
         }
+        console.log(Manager)
         teamRoster.push(newTeamMember);
+        console.log(newTeamMember)
+        console.log(teamRoster)
         addPrompt();
     })
 }

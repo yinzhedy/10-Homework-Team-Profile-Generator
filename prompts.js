@@ -39,22 +39,22 @@ prompts.addMemberPrompt = {
 prompts.managerPrompts = [
         {
             type: 'input',
-            name: 'managerName',
+            name: 'name',
             message: "What is your team manager's name?",
           },
           {
             type: 'input',
-            name: 'managerID',
+            name: 'id',
             message: "What is your team manager's employee ID?"
           },
           {
             type: 'input',
-            name: 'managerEmail',
+            name: 'email',
             message: "What is your team manager's email address?",
           },
           {
             type: 'input',
-            name: 'managerOfficeNumber',
+            name: 'officeNumber',
             message: "What is your team manager's office number?",
           },
           prompts.addMemberPrompt
@@ -63,22 +63,22 @@ prompts.managerPrompts = [
 prompts.engineerPrompts = [
     {
         type: 'input',
-        name: 'engineerName',
+        name: 'name',
         message: "What is this engineer's name?",
         },
     {
         type: 'input',
-        name: 'engineerID',
+        name: 'id',
         message: "What is this engineer's employee ID?"
         },
     {
         type: 'input',
-        name: 'engineerEmail',
+        name: 'email',
         message: "What is this engineer's email address?",
         },
     {
         type: 'input',
-        name: 'engineerGithub',
+        name: 'github',
         message: "What is this engineer's Github username?",
         },
 ]
@@ -86,22 +86,22 @@ prompts.engineerPrompts = [
 prompts.internPrompts = [
     {
         type: 'input',
-        name: 'internName',
+        name: 'name',
         message: "What is this intern's name?",
         },
     {
         type: 'input',
-        name: 'internID',
+        name: 'id',
         message: "What is this intern's employee ID?"
         },
     {
         type: 'input',
-        name: 'internEmail',
+        name: 'email',
         message: "What is this intern's email address?",
         },
     {
         type: 'input',
-        name: 'internSchool',
+        name: 'school',
         message: "What is this intern's school?",
         },
 ]
