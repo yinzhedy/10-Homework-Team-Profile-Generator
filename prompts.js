@@ -1,12 +1,4 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
-const jest = require('jest');
-const generateMarkdown = require('./markdown')
-const util = require('util');
-const path = require('path');
-const { listenerCount } = require('process');
-
-var prompts = {};
+let prompts = {};
 
 prompts.addFirstMemberPrompt = {
     type: 'list',
