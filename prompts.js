@@ -8,8 +8,6 @@ const { listenerCount } = require('process');
 
 var prompts = {};
 
-// prompt to ask the user if they're sure they're done creating their team
-
 prompts.addFirstMemberPrompt = {
     type: 'list',
     name: 'start',
@@ -26,7 +24,6 @@ prompts.finishedPrompt =
           choices: ["Yes", "No"]
         },
 
-// prompt to ask if the user would like to add another team member
 prompts.addMemberPrompt = {
             type: 'list',
             name: 'addMember',
@@ -34,9 +31,6 @@ prompts.addMemberPrompt = {
             choices: ['Manager', 'Engineer', 'Intern', 'No']
 },
 
-
-    
-// prompt for manager input, then option for additional team member
 prompts.managerPrompts = [
         {
             type: 'input',
@@ -59,7 +53,7 @@ prompts.managerPrompts = [
             message: "What is your team manager's office number?",
           },
         ]
-// prompt for engineer information
+
 prompts.engineerPrompts = [
     {
         type: 'input',

@@ -10,8 +10,6 @@ const Intern = require('./lib/intern');
 const Engineer = require('./lib/engineer');
 const { assertGenericTypeAnnotation } = require('@babel/types');
 
-console.log(Manager.name)
-console.log(promptsJs)
 console.log("Hello! Lets get started on building your team roster.");
 
 const teamRoster = [];
@@ -19,7 +17,6 @@ const teamRoster = [];
 const runPrompts = () => {
     inquirer.prompt(promptsJs.prompts.addFirstMemberPrompt)
     .then((answer) => {
-        console.log(answer)
         if(answer.start == 'Manager') {
             teamMemberPrompts(promptsJs.prompts.managerPrompts, 'manager')
         }
@@ -36,7 +33,6 @@ const runPrompts = () => {
 const teamMemberPrompts = (prompt, role) => {
     inquirer.prompt(prompt)
     .then((answer) => {
-        console.log(answer)
         let newTeamMember = {};
         if (role == 'manager') {
             newTeamMember = new Manager (
@@ -44,10 +40,7 @@ const teamMemberPrompts = (prompt, role) => {
                 answer.id,
                 answer.email,
                 answer.officeNumber
-            )
-            console.log(newTeamMember)
-            console.log(Manager.officeNumber)
-        }
+            )}
 
         else if(role == 'intern') {
             newTeamMember = new Intern(
@@ -55,8 +48,7 @@ const teamMemberPrompts = (prompt, role) => {
                 answer.id,
                 answer.email,
                 answer.school,
-            )
-        }
+            )}
 
         else {
             newTeamMember = new Engineer(
@@ -64,12 +56,8 @@ const teamMemberPrompts = (prompt, role) => {
                 answer.id,
                 answer.email,
                 answer.github
-            )
-        }
-        console.log(Manager)
+            )}
         teamRoster.push(newTeamMember);
-        console.log(newTeamMember)
-        console.log(teamRoster)
         addPrompt();
     })
 }
@@ -77,7 +65,6 @@ const teamMemberPrompts = (prompt, role) => {
 const addPrompt = () => {
     inquirer.prompt(promptsJs.prompts.addMemberPrompt)
     .then((answer) => {
-        console.log(answer)
         if(answer.addMember == 'Manager') {
             teamMemberPrompts(promptsJs.prompts.managerPrompts, 'manager')
         }
